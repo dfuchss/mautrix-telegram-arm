@@ -2,6 +2,8 @@ name: Docker Push ARM & Other
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * 1"
 
 
 env:

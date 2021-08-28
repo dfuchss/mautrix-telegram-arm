@@ -10,7 +10,28 @@ env:
   CURRENT_DOCKERFILE_MD5: 64028a198c3f01f285988de8a418c35f
 
 jobs:
+  check_date:
+    runs-on: ubuntu-latest
+    name: Check latest commit
+    outputs:
+      should_run: ${{ steps.should_run.outputs.should_run }}
+    steps:
+      - uses: actions/checkout@v2
+        with: 
+          ref: master
+      - name: Print latest Commit
+        run: git rev-parse master
+
+      - id: should_run
+        continue-on-error: true
+        name: Check latest Commit is less than a week
+        if: ${{ github.event_name == 'schedule' }}
+        run: test -z $(git rev-list --after="1 week"  master) && echo "::set-output name=should_run::false"
+
   push:
+    needs: check_date
+    if: ${{ needs.check_date.outputs.should_run != 'false' }}
+    
     runs-on: ubuntu-latest
 
     permissions:

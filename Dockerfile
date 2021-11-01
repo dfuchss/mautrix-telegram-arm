@@ -16,7 +16,7 @@ FROM alpine:3.14
 # Copy Lottie Converter
 COPY --from=builder /usr/lib/librlottie.so* /usr/lib/
 COPY --from=builder /LottieConverter/dist/Release/GNU-Linux/lottieconverter /usr/bin/lottieconverter
-RUN apk add --no-cache zlib libpng libpng-dev zlib-dev
+RUN apk add --no-cache zlib libpng libjpeg-dev zlib-dev
 
 RUN apk add --no-cache \
       python3 py3-pip py3-setuptools py3-wheel \

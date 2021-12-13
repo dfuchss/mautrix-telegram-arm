@@ -1,4 +1,4 @@
-FROM alpine:3.14 AS builder
+FROM alpine:3.15 AS builder
 
 RUN apk add --no-cache git build-base cmake libpng-dev zlib-dev
 
@@ -11,7 +11,7 @@ WORKDIR /
 RUN git clone https://github.com/sot-tech/LottieConverter && cd LottieConverter && git checkout e515646
 RUN cd LottieConverter && make CONF=Release
 
-FROM alpine:3.14
+FROM alpine:3.15
 
 # Copy Lottie Converter
 COPY --from=builder /usr/lib/librlottie.so* /usr/lib/

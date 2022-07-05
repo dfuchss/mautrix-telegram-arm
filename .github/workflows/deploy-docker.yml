@@ -7,7 +7,7 @@ on:
 
 
 env:
-  CURRENT_DOCKERFILE_MD5: 5897ef950739fb66d8bcea1ea736b47c
+  CURRENT_DOCKERFILE_MD5: ed0622e5fca4e0dd9a1df360468162b7
 
 jobs:
   check_date:

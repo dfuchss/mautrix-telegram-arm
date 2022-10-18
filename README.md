@@ -1,3 +1,5 @@
+:warning: **This Fork is discontinued! The images will be outdated!** :warning:
+
 # mautrix-telegram-arm (Fork)
 [![Docker Push ARM & Other](https://github.com/dfuchss/mautrix-telegram-arm/actions/workflows/deploy-docker.yml/badge.svg)](https://github.com/dfuchss/mautrix-telegram-arm/actions/workflows/deploy-docker.yml)
 
